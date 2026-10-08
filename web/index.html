@@ -18,7 +18,13 @@
     <form id="unlock" autocomplete="off">
       <label for="password">密码</label>
       <input id="password" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required aria-describedby="status">
-      <button id="open" class="primary" type="submit">解锁</button>
+      <button id="open" class="primary" type="submit"><span id="unlock-button-spinner" class="spinner" hidden aria-hidden="true"></span><span id="unlock-button-text">解锁</span></button>
+      <div id="unlock-progress" class="unlock-progress" hidden>
+        <p id="unlock-phase" role="status" aria-live="polite">准备解锁…</p>
+        <progress id="unlock-meter" max="1" aria-label="当前阶段进度"></progress>
+        <p id="unlock-detail"></p>
+        <ol class="unlock-steps" aria-label="解锁步骤"><li data-step="verify">验证密码</li><li data-step="read">读取内容</li><li data-step="parse">整理信息</li></ol>
+      </div>
       <p id="status" class="status" role="status" aria-live="polite"></p>
     </form>
     <p class="gate-note">只在当前页面解锁。离开后，请重新输入。</p>
