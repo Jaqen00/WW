@@ -7,18 +7,20 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://raw.githubusercontent.com; style-src 'self'; img-src blob:; media-src blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>WW</title>
-<link rel="stylesheet" href="./style.css?v=1e059d079e84">
-<script src="./app.js?v=1e059d079e84" defer></script>
+<link rel="stylesheet" href="./style.css?v=fb84804e2193">
+<script src="./app.js?v=fb84804e2193" defer></script>
 </head>
-<body>
+<body data-mode="gate">
+<div id="cosmos-surface" class="cosmos-surface" data-mode="gate"></div>
+<div class="gate-wordmark" aria-hidden="true">WW</div>
 <main id="gate" class="gate">
   <div class="gate-inner">
-    <h1>WW</h1>
-    <p class="gate-intro">输入密码，开启你的空间。</p>
+    <h1>开启你的空间。</h1>
+    <p class="gate-intro">输入密码，让记忆在星空中展开。</p>
     <form id="unlock" autocomplete="off">
       <label for="password">密码</label>
       <input id="password" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required aria-describedby="status">
-      <button id="open" class="primary" type="submit"><span id="unlock-button-spinner" class="spinner" hidden aria-hidden="true"></span><span id="unlock-button-text">解锁</span></button>
+      <button id="open" class="primary" type="submit"><span id="unlock-button-spinner" class="spinner" hidden aria-hidden="true"></span><span id="unlock-button-text">开启空间</span></button>
       <div id="unlock-progress" class="unlock-progress" hidden>
         <p id="unlock-phase" role="status" aria-live="polite">准备解锁…</p>
         <progress id="unlock-meter" max="1" aria-label="当前阶段进度"></progress>
@@ -31,8 +33,14 @@
     <noscript>请启用 JavaScript 后使用。</noscript>
   </div>
 </main>
+<main id="space" class="space" hidden aria-label="记忆星云">
+  <header class="space-header"><span class="space-brand">WW</span><div><button id="space-lock" type="button">锁定</button><button id="space-manager" class="space-primary" type="button">照片管理</button></div></header>
+  <div class="space-caption"><h1>记忆星云</h1><p>拖动旋转，滚动或双指缩放。点击照片，查看这一刻。</p></div>
+  <div class="space-toolbar" aria-label="星云控制"><button id="space-zoom-out" type="button" aria-label="缩小星云">缩小</button><button id="space-zoom-in" type="button" aria-label="放大星云">放大</button><button id="space-reset" type="button">复位</button><button id="space-motion" type="button" aria-pressed="false">暂停流动</button></div>
+  <section class="space-browser" aria-label="星云中的照片"><div class="space-page"><button id="space-previous" type="button">上一组</button><p id="space-status" role="status" aria-live="polite">空间正在展开…</p><button id="space-next" type="button">下一组</button></div><div id="space-photos" class="space-photos"></div></section>
+</main>
 <main id="workspace" hidden>
-  <header class="top"><a class="brand" href="./">WW<span>私人空间</span></a><button id="lock" type="button">锁定</button></header>
+  <header class="top"><a class="brand" href="./">WW<span>私人空间</span></a><div class="library-header-actions"><button id="back-space" type="button">返回星云</button><button id="lock" type="button">锁定</button></div></header>
   <section class="collection" aria-label="内容">
     <div class="library-heading"><h1 id="collection-title">内容</h1><p id="collection-description"></p></div>
     <div class="tools">
