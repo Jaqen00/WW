@@ -1,0 +1,27 @@
+{
+  "header": {
+    "version": 1,
+    "vaultId": "3babeaee-235e-4fe2-9105-7fce067dbbe8",
+    "kdf": {
+      "name": "Argon2id",
+      "version": 19,
+      "memoryKiB": 65536,
+      "iterations": 3,
+      "parallelism": 4,
+      "keyLength": 32,
+      "salt": "izSDXoFBl+TURz7ncTr1RA=="
+    },
+    "format": "WW",
+    "wrap": {
+      "name": "AES-256-GCM",
+      "nonce": "CbIysf4QHejLMFBo",
+      "tagBits": 128,
+      "ciphertext": "vjJfpzw8YWCq9Nl82JJ8ZPmc3Dtgqf8xj0y/+TnLOmVihjbTbb/GMgzNSrYc3C8q"
+    }
+  },
+  "record": {
+    "id": "485689ce22d3474ea1e9a9a9bdb76fd4",
+    "size": 314889,
+    "chunks": 1
+  }
+}

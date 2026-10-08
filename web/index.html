@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://raw.githubusercontent.com; style-src 'self'; img-src blob:; media-src blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>WW</title>
+<link rel="stylesheet" href="./style.css">
+<script src="./app.js" defer></script>
+</head>
+<body>
+<main id="gate" class="gate">
+  <div class="gate-inner">
+    <h1>WW</h1>
+    <p class="gate-intro">输入密码，开启你的空间。</p>
+    <form id="unlock" autocomplete="off">
+      <label for="password">密码</label>
+      <input id="password" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required aria-describedby="status">
+      <button id="open" class="primary" type="submit">解锁</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="gate-note">只在当前页面解锁。离开后，请重新输入。</p>
+    <noscript>请启用 JavaScript 后使用。</noscript>
+  </div>
+</main>
+<main id="workspace" hidden>
+  <header class="top"><a class="brand" href="./">WW<span>私人空间</span></a><button id="lock" type="button">锁定</button></header>
+  <section class="collection" aria-label="内容">
+    <div class="library-heading"><h1 id="collection-title">内容</h1><p id="collection-description"></p></div>
+    <div class="tools">
+      <div class="view-tabs" role="tablist" aria-label="浏览方式"><button id="view-all" type="button" role="tab" aria-selected="true">图库</button><button id="view-locations" type="button" role="tab" aria-selected="false">位置</button></div>
+      <div class="search"><label class="sr-only" for="search">搜索名称或地点</label><input id="search" type="search" placeholder="搜索名称或地点" autocomplete="off"></div>
+      <label class="sr-only" for="filter">内容类型</label><select id="filter"><option value="image">影像</option><option value="video">视频</option><option value="file">文件</option><option value="all">全部内容</option></select>
+      <label class="sr-only" for="sort">排序</label><select id="sort"><option value="newest">时间 · 最新</option><option value="oldest">时间 · 最早</option><option value="name">名称 · A–Z</option><option value="size">大小 · 从大到小</option></select>
+      <label class="sr-only" for="density">显示密度</label><select id="density"><option value="comfortable">舒展</option><option value="compact">紧凑</option></select>
+    </div>
+    <div class="result-line"><p id="count" aria-live="polite"></p><p id="location-note" hidden>位置由 GPS 与离线城市资料推定，可能存在偏差。</p></div>
+    <div id="location-picker" class="location-picker" hidden></div>
+    <p id="empty" hidden>没有找到匹配的内容。</p>
+    <div id="grid" class="groups"></div>
+  <footer class="library-footer">位置资料：<a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">GeoNames</a> · CC BY 4.0</footer></section>
+</main>
+<dialog id="viewer" aria-labelledby="view-name">
+  <div class="viewer-inner">
+    <div class="viewer-top"><h2 id="view-name"></h2><button id="close" type="button" aria-label="关闭">关闭</button></div>
+    <div class="viewer-navigation"><button id="previous" type="button" aria-label="上一项">上一张</button><span id="view-position"></span><button id="next" type="button" aria-label="下一项">下一张</button></div><div class="viewer-stage"><video id="video" controls playsinline preload="none" hidden></video></div>
+    <div class="viewer-bottom"><p id="view-info"></p><pre id="raw-information" hidden></pre><p id="view-path"></p><div class="viewer-actions"><button id="inspect" type="button">原始信息</button><button id="zoom" type="button">放大</button><button id="play" type="button" hidden>播放视频</button><button id="download" class="primary" type="button">下载原件</button></div><p id="view-status" class="status" role="status" aria-live="polite"></p></div>
+  </div>
+</dialog>
+</body></html>
