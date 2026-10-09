@@ -7,8 +7,9 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://raw.githubusercontent.com; style-src 'self'; img-src 'self' blob:; media-src blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>WW</title>
-<link rel="stylesheet" href="./style.css?v=a79276237b47">
-<script src="./app.js?v=a79276237b47" defer></script>
+<link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css?v=d6534c2f607b">
+<script src="./app.js?v=d6534c2f607b" defer></script>
 </head>
 <body data-mode="gate">
 <div id="cosmos-surface" class="cosmos-surface" data-mode="gate"></div>
@@ -33,14 +34,16 @@
     <noscript>请启用 JavaScript 后使用。</noscript>
   </div>
 </main>
-<main id="space" class="space" hidden aria-label="记忆星云">
-  <header class="space-header"><span class="space-brand">WW</span><div><button id="space-lock" type="button">锁定</button><button id="space-manager" class="space-primary" type="button">照片管理</button></div></header>
-  <div class="space-caption"><h1>记忆星云</h1><p>拖动旋转，滚动或双指缩放。点击照片，查看这一刻。</p></div>
-  <div class="space-toolbar" aria-label="星云控制"><button id="space-zoom-out" type="button" aria-label="缩小星云">缩小</button><button id="space-zoom-in" type="button" aria-label="放大星云">放大</button><button id="space-reset" type="button">复位</button><button id="space-motion" type="button" aria-pressed="false">暂停流动</button></div>
-  <section class="space-browser" aria-label="星云中的照片"><div class="space-page"><button id="space-previous" type="button">上一组</button><p id="space-status" role="status" aria-live="polite">空间正在展开…</p><button id="space-next" type="button">下一组</button></div><div id="space-photos" class="space-photos"></div></section>
+<main id="space" class="space" hidden aria-label="记忆空间">
+  <header class="space-header"><span class="space-brand">WW</span><div class="space-switch" aria-label="空间浏览方式"><button id="space-map" type="button" aria-pressed="true">星图</button><button id="space-gallery" type="button" aria-pressed="false">展廊</button></div><div class="space-header-actions"><button id="space-lock" type="button">锁定</button><button id="space-manager" class="space-primary" type="button">照片管理</button></div></header>
+  <div class="space-caption"><h1 id="space-title">记忆，有迹可循。</h1><p id="space-subtitle">沿着时间与地点，重新靠近那些瞬间。</p></div>
+  <div class="space-toolbar" aria-label="星图控制"><button id="space-zoom-out" type="button" aria-label="缩小星图">−</button><button id="space-zoom-in" type="button" aria-label="放大星图">＋</button><button id="space-reset" type="button">回到当前章节</button><button id="space-motion" type="button" aria-pressed="false">暂停星光</button></div>
+  <p class="atlas-hint" id="atlas-hint">拖动探索 · 滚动 / 双指缩放 · 点击照片放大</p>
+  <section id="chapter-gallery" class="chapter-gallery" hidden aria-label="章节展廊"><div id="gallery-track" class="gallery-track" tabindex="0" aria-label="左右滑动浏览照片"></div><div class="gallery-navigation"><button id="gallery-previous" type="button" aria-label="上一张展廊照片">←</button><p id="gallery-position" role="status" aria-live="polite"></p><button id="gallery-next" type="button" aria-label="下一张展廊照片">→</button></div></section>
+  <section class="space-browser" aria-label="记忆章节"><div class="space-page"><button id="space-previous" type="button" aria-label="上一章节">←</button><p id="space-status" role="status" aria-live="polite">空间正在展开…</p><button id="space-next" type="button" aria-label="下一章节">→</button></div><div id="space-photos" class="space-photos"></div></section>
 </main>
 <main id="workspace" hidden>
-  <header class="top"><a class="brand" href="./">WW<span>私人空间</span></a><div class="library-header-actions"><button id="back-space" type="button">返回星云</button><button id="lock" type="button">锁定</button></div></header>
+  <header class="top"><a class="brand" href="./">WW<span>私人空间</span></a><div class="library-header-actions"><button id="back-space" type="button">返回空间</button><button id="lock" type="button">锁定</button></div></header>
   <section class="collection" aria-label="内容">
     <div class="library-heading"><h1 id="collection-title">内容</h1><p id="collection-description"></p></div>
     <div class="tools">
