@@ -58,3 +58,68 @@ body[data-mode=space] #viewer{background:#0b1018;color:#edf0f4;border:1px solid 
 .viewer-stage{min-height:min(58svh,620px)}#viewer.is-transitioning{overflow:visible}#viewer.is-transitioning .viewer-inner{opacity:0}.viewer-inner{transition:opacity 140ms ease}.preview-flight{max-width:none;max-height:none}
 
 .atlas-shot[data-failed=true]::after,.gallery-shot[data-failed=true]::after{content:"预览暂不可用 · 点击重试";position:absolute;inset:0;display:grid;place-items:center;padding:12px;color:#bdc9d9;font-size:11px;line-height:1.5}.atlas-shot[data-failed=true]::before,.gallery-shot[data-failed=true]::before{display:none}
+
+/* A visible galactic plane and an ordered depth journey. */
+.cosmos-surface{background:#040810}
+.cosmos-surface::before{display:none}
+.cosmos-surface::after{background:linear-gradient(#030711bd,transparent 29%,transparent 67%,#030711e6);z-index:0}
+.cosmos-surface[data-mode=gate]::after{background:linear-gradient(90deg,#030711e8,transparent 80%),linear-gradient(#03071155,transparent 50%,#03071166)}
+.cosmos-surface canvas{opacity:1;pointer-events:none}
+.gate-eyebrow{color:#b7c1cf;font-size:10px;letter-spacing:.19em;margin:0 0 24px}
+.gate-intro,.gate .gate-note{color:#b6c1d0}
+.space-header{background:linear-gradient(#04081070,transparent)}
+.space-switch{background:#090e19b3;backdrop-filter:blur(16px);border-color:#ffffff25}
+.space-switch button[aria-pressed=true]{background:#e6eaf0;color:#121b29}
+.space button{background:#101725bb;border-color:#ffffff25;backdrop-filter:blur(8px)}
+.space-caption h1{font-size:clamp(30px,3vw,42px);letter-spacing:-.045em;text-shadow:0 2px 30px #0008}
+.space-caption p,.atlas-hint,.space-page p{color:#b4c0d0}
+.atlas-viewport{perspective:1100px;mask-image:none}
+.atlas-world{transform-style:preserve-3d}
+.atlas-node{transform:translate3d(-155px,-134px,var(--chapter-depth));opacity:.75}
+.atlas-node.is-selected{transform:translate3d(-155px,-134px,calc(var(--chapter-depth) + 50px)) scale(1.06);opacity:1}
+.atlas-node::before{background:#ffe0b1;box-shadow:0 0 6px #ffe0b1,0 0 24px #d5aa76;opacity:.9}
+.atlas-shot{background:#111a27;border-color:#e3eaf742;box-shadow:0 12px 50px #0008;backdrop-filter:none}
+.atlas-shot[data-slot="1"]{transform:rotate(5deg)}
+.atlas-shot[data-slot="2"]{transform:rotate(-5deg)}
+.atlas-shot:hover,.atlas-shot:focus-visible{transform:translateY(-5px);border-color:#dce8f9}
+.atlas-label strong{color:#f3f5f8;text-shadow:0 1px 12px #000}
+.atlas-label span{color:#b7c5d8;text-shadow:0 1px 8px #000}
+.space-browser{border-color:#ffffff24;background:linear-gradient(transparent,#030711a6);backdrop-filter:blur(5px)}
+.space button.space-photo[aria-current=true]{background:#162235d9;border-color:#c9d6ec55}
+.space button.space-photo,.space-page button{backdrop-filter:none}
+.chapter-gallery{inset:198px 0 146px;gap:0}
+.gallery-track{display:block;position:relative;flex:1;min-height:0;padding:0;gap:0;overflow-x:hidden;overflow-y:auto;scroll-snap-type:none;overscroll-behavior:contain;touch-action:pan-y;cursor:grab;scrollbar-width:none;outline-offset:-6px}
+.depth-stage{position:sticky;top:0;width:100%;height:100%;perspective:1000px;perspective-origin:50% 48%;transform-style:preserve-3d;pointer-events:none}
+.gallery-runway{width:1px;pointer-events:none}
+.gallery-item{position:absolute;left:50%;top:50%;width:min(660px,62vw);height:calc(100% - 24px);max-height:570px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0;flex:none;opacity:0;transition:none;pointer-events:none;visibility:hidden;transform-origin:center}
+.space button.gallery-shot{display:block;width:100%;height:calc(100% - 42px);max-height:none;min-height:60px;border:0;border-radius:0;padding:0;background:transparent;box-shadow:none;backdrop-filter:none;overflow:hidden;pointer-events:none;opacity:1}
+.gallery-item.is-current .gallery-shot{pointer-events:auto;cursor:zoom-in}
+.gallery-shot img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;border-radius:2px;filter:drop-shadow(0 12px 24px #0005)}
+.gallery-shot:not([data-ready=true]){background:#18223366!important;border:1px solid #ffffff1a!important}
+.gallery-shot[data-placeholder=true] img{opacity:.8;filter:blur(1px)}
+.gallery-shot:not([data-ready=true]):not([data-failed=true])::after{content:"正在读取清晰预览…";position:absolute;inset:0;display:grid;place-items:center;color:#c8d2e0;font-size:11px;background:#060b1526;pointer-events:none}
+.gallery-caption{align-self:stretch;justify-content:center;color:#bec9d9;min-height:22px;margin-top:16px;font-size:10px;gap:20px}
+.gallery-item:not(.is-current) .gallery-caption{visibility:hidden}
+.gallery-navigation{height:44px;padding:5px 0 0;gap:24px}
+.gallery-navigation button{background:#10172580;border:1px solid #ffffff20;width:44px;height:40px;border-radius:50%;padding:4px}
+.gallery-navigation p{min-width:60px;text-align:center;color:#c7d1de}
+.gallery-progress{height:2px;width:140px;margin:12px auto 0;background:#ffffff20;flex-shrink:0;border-radius:2px;overflow:hidden}
+.gallery-progress::after{content:"";display:block;width:var(--gallery-progress,0%);height:100%;background:#dfd1bb;transition:width 100ms linear}
+.space[data-view=gallery] .space-caption h1{font-size:clamp(29px,3vw,39px)}
+@media(max-width:1000px){.space-toolbar{top:auto;bottom:147px}.space-toolbar #space-motion{display:block}.space-toolbar #space-reset{font-size:10px}.space-caption h1{font-size:34px}}
+@media(max-width:700px){
+  .cosmos-surface[data-mode=gate]::after{background:linear-gradient(#030711aa,transparent 26%,#03071199 80%)}
+  .gate-eyebrow{margin-bottom:18px}.gate-inner{width:min(100%,350px)}.gate h1{font-size:42px}
+  .space-header{padding-inline:18px}.space-header-actions button{min-height:40px}.space-switch button{padding-inline:10px}
+  .space-caption{left:22px;right:22px;top:92px}.space-caption h1{font-size:clamp(21px,5.6vw,26px);line-height:1.25}.space-caption p{font-size:11px}
+  .space-toolbar #space-motion{display:none}.space-toolbar{bottom:143px;right:18px}.space-toolbar #space-reset{font-size:0}
+  .atlas-viewport{top:163px;bottom:189px;perspective:1000px}.atlas-hint{bottom:157px;font-size:9px}
+  .space-browser{left:18px;right:18px;bottom:14px}.space-photo .chapter-label{font-size:11px}
+  .chapter-gallery{inset:168px 0 143px}.depth-stage{perspective:900px;perspective-origin:50% 48%}
+  .gallery-item{width:82vw;height:calc(100% - 24px);max-height:570px}.space button.gallery-shot{height:calc(100% - 34px);max-height:none}
+  .gallery-caption{font-size:9px;margin-top:13px;gap:10px}.gallery-caption span:last-child{max-width:50%}
+  .gallery-navigation{height:42px;padding-top:2px}.gallery-navigation button{width:40px;height:40px}.gallery-progress{margin-top:8px;width:100px}
+  .space[data-view=gallery] .space-caption h1{font-size:26px}.space[data-view=gallery] .space-caption p{font-size:10px}
+}
+@media(max-height:650px) and (min-width:701px){.chapter-gallery{inset:145px 0 115px}.gallery-item{height:calc(100% - 30px)}.space-caption h1{font-size:28px}.space-caption{top:85px}.space-toolbar{bottom:133px}.gallery-navigation{height:38px}.gallery-progress{margin-top:5px}}
+@media(prefers-reduced-motion:reduce){.atlas-node,.atlas-node.is-selected{transform:translate(-155px,-134px)}.gallery-progress::after{transition:none}.depth-stage{perspective:none}}

@@ -8,15 +8,15 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://raw.githubusercontent.com; style-src 'self'; img-src 'self' blob:; media-src blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>WW</title>
 <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./style.css?v=d6534c2f607b">
-<script src="./app.js?v=d6534c2f607b" defer></script>
+<link rel="stylesheet" href="./style.css?v=85ae4f47f610">
+<script src="./app.js?v=85ae4f47f610" defer></script>
 </head>
 <body data-mode="gate">
 <div id="cosmos-surface" class="cosmos-surface" data-mode="gate"></div>
 <div class="gate-wordmark" aria-hidden="true">WW</div>
 <main id="gate" class="gate">
   <div class="gate-inner">
-    <h1>开启你的空间。</h1>
+    <p class="gate-eyebrow">WW · 私人宇宙</p><h1>开启你的空间。</h1>
     <p class="gate-intro">输入密码，让记忆在星空中展开。</p>
     <form id="unlock" autocomplete="off">
       <label for="password">密码</label>
@@ -35,11 +35,11 @@
   </div>
 </main>
 <main id="space" class="space" hidden aria-label="记忆空间">
-  <header class="space-header"><span class="space-brand">WW</span><div class="space-switch" aria-label="空间浏览方式"><button id="space-map" type="button" aria-pressed="true">星图</button><button id="space-gallery" type="button" aria-pressed="false">展廊</button></div><div class="space-header-actions"><button id="space-lock" type="button">锁定</button><button id="space-manager" class="space-primary" type="button">照片管理</button></div></header>
-  <div class="space-caption"><h1 id="space-title">记忆，有迹可循。</h1><p id="space-subtitle">沿着时间与地点，重新靠近那些瞬间。</p></div>
+  <header class="space-header"><span class="space-brand">WW</span><div class="space-switch" aria-label="空间浏览方式"><button id="space-map" type="button" aria-pressed="true">星空</button><button id="space-gallery" type="button" aria-pressed="false">展廊</button></div><div class="space-header-actions"><button id="space-lock" type="button">锁定</button><button id="space-manager" class="space-primary" type="button">照片管理</button></div></header>
+  <div class="space-caption"><h1 id="space-title">每一刻，都有自己的星光。</h1><p id="space-subtitle">沿时间与地点探索，选择一个章节，让记忆靠近。</p></div>
   <div class="space-toolbar" aria-label="星图控制"><button id="space-zoom-out" type="button" aria-label="缩小星图">−</button><button id="space-zoom-in" type="button" aria-label="放大星图">＋</button><button id="space-reset" type="button">回到当前章节</button><button id="space-motion" type="button" aria-pressed="false">暂停星光</button></div>
   <p class="atlas-hint" id="atlas-hint">拖动探索 · 滚动 / 双指缩放 · 点击照片放大</p>
-  <section id="chapter-gallery" class="chapter-gallery" hidden aria-label="章节展廊"><div id="gallery-track" class="gallery-track" tabindex="0" aria-label="左右滑动浏览照片"></div><div class="gallery-navigation"><button id="gallery-previous" type="button" aria-label="上一张展廊照片">←</button><p id="gallery-position" role="status" aria-live="polite"></p><button id="gallery-next" type="button" aria-label="下一张展廊照片">→</button></div></section>
+  <section id="chapter-gallery" class="chapter-gallery" hidden aria-label="章节展廊"><div id="gallery-track" class="gallery-track" tabindex="0" aria-label="滚动或上下滑动浏览照片，方向键翻页，点击当前照片放大"></div><div class="gallery-navigation"><button id="gallery-previous" type="button" aria-label="上一张展廊照片">←</button><p id="gallery-position" role="status" aria-live="polite"></p><button id="gallery-next" type="button" aria-label="下一张展廊照片">→</button></div><div id="gallery-progress" class="gallery-progress" aria-hidden="true"></div></section>
   <section class="space-browser" aria-label="记忆章节"><div class="space-page"><button id="space-previous" type="button" aria-label="上一章节">←</button><p id="space-status" role="status" aria-live="polite">空间正在展开…</p><button id="space-next" type="button" aria-label="下一章节">→</button></div><div id="space-photos" class="space-photos"></div></section>
 </main>
 <main id="workspace" hidden>
