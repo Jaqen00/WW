@@ -191,8 +191,8 @@ body[data-mode=space] #viewer{background:#0b1018;color:#edf0f4;border:1px solid 
 
 /* Appearance controls sit above the sky; media keeps its original colour. */
 .palette-filter-defs{position:absolute;pointer-events:none;overflow:hidden}
-body[data-palette]:not([data-palette-strength="0"]) .nebula-art img,
-body[data-palette]:not([data-palette-strength="0"]) .cosmos-surface[data-renderer=canvas] .galaxy-sky{filter:url("#nebula-palette")}
+body[data-palette-tone=on] .nebula-art img,
+body[data-palette-tone=on] .cosmos-surface[data-renderer=canvas] .galaxy-sky{filter:url("#nebula-palette")}
 .palette-tools{position:fixed;right:40px;top:28px;z-index:8;color:#edf0f7;pointer-events:none}
 body[data-mode=space] .palette-tools{top:105px}
 body[data-mode=library] .palette-tools,body:has(#viewer[open]) .palette-tools{display:none}
@@ -278,3 +278,29 @@ body[data-palette]:not([data-palette-strength="0"])[data-mode=space] .viewer-nav
 body[data-palette]:not([data-palette-strength="0"])[data-mode=space] .viewer-actions button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
 body[data-palette]:not([data-palette-strength="0"])[data-mode=space] #raw-information{background:var(--accent-soft);color:var(--ink)}
 body[data-palette]:not([data-palette-strength="0"]) .primary:hover{background:var(--accent);filter:brightness(1.06)}
+/* A bright rose universe, with ink-coloured navigation and untouched photographs. */
+body[data-palette][data-palette-light=bright] .gate,body[data-palette][data-palette-light=bright] .space,body[data-palette][data-palette-light=bright] .gate-wordmark{color:var(--ink)}
+body[data-palette][data-palette-light=bright] .cosmos-surface{background:var(--sky-floor)}
+body[data-palette][data-palette-light=bright] .has-live-nebula .galaxy-sky,body[data-palette][data-palette-light=bright] .has-live-nebula[data-mode=space] .galaxy-sky{opacity:.94}
+body[data-palette][data-palette-light=bright] .gate input{color:var(--ink);caret-color:var(--accent);background:var(--space-panel);border-color:var(--space-line)}
+body[data-palette][data-palette-light=bright] .gate .primary{background:var(--accent);color:#fff}
+body[data-palette][data-palette-light=bright] .gate .spinner{border-color:#ffffff55;border-top-color:#fff}
+body[data-palette][data-palette-light=bright] .gate .unlock-progress #unlock-phase,body[data-palette][data-palette-light=bright] .gate .unlock-steps li[data-state=done]{color:var(--ink)}
+body[data-palette][data-palette-light=bright] .gate .unlock-progress #unlock-detail,body[data-palette][data-palette-light=bright] .gate .unlock-steps{color:var(--muted)}
+body[data-palette][data-palette-light=bright] .gate .unlock-steps li[data-state=active]{color:var(--accent)}
+body[data-palette][data-palette-light=bright] .space-caption p,body[data-palette][data-palette-light=bright] .space-breadcrumb button,body[data-palette][data-palette-light=bright] .atlas-hint{color:var(--ink)}
+body[data-palette][data-palette-light=bright] .space-breadcrumb button[aria-current],body[data-palette][data-palette-light=bright] .space-breadcrumb button:hover{color:var(--accent)}
+body[data-palette][data-palette-light=bright] .space .nebula-label{background:radial-gradient(ellipse,var(--space-panel),transparent 74%);color:var(--ink);text-shadow:none}
+body[data-palette][data-palette-light=bright] .nebula-label span,body[data-palette][data-palette-light=bright] .nebula-label:hover strong,body[data-palette][data-palette-light=bright] .nebula-photo-caption{color:var(--ink);text-shadow:0 1px 8px #fff8}
+body[data-palette][data-palette-light=bright] .space-browser{background:linear-gradient(transparent,var(--space-panel))}
+body[data-palette][data-palette-light=bright] .space-page p,body[data-palette][data-palette-light=bright] .space-photo .chapter-label,body[data-palette][data-palette-light=bright] .space-toolbar #space-motion{color:var(--ink)}
+body[data-palette][data-palette-light=bright] .space button:hover{color:var(--ink);background:var(--accent-soft)}
+body[data-palette][data-palette-light=bright] .space .nebula-photo:hover{background:transparent}
+body[data-palette][data-palette-light=bright] .gate-eyebrow{color:var(--muted)}
+body[data-palette][data-palette-light=bright] .gate .status{color:#9b1538}
+body[data-palette][data-palette-light=bright] .gate input:focus-visible{outline-color:var(--accent)}
+body[data-palette][data-palette-light=bright] .gallery-caption,body[data-palette][data-palette-light=bright] .gallery-navigation p{color:var(--ink)}
+body[data-palette][data-palette-light=bright] .gallery-progress::after{background:var(--accent)}
+body[data-palette][data-palette-light=bright] .palette-rose{background:radial-gradient(circle at 30% 30%,#fff8fc,#e9adc8 48%,#c7749d 85%)}
+body[data-palette][data-palette-light=bright] .palette-violet{background:radial-gradient(circle at 30% 30%,#fff8ff,#cbb3e8 48%,#9f81bf 85%)}
+body[data-palette][data-palette-light=bright] .palette-gold{background:radial-gradient(circle at 30% 30%,#fffbee,#e6d4a7 48%,#b7a16a 85%)}
