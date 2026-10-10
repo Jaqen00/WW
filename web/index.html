@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://raw.githubusercontent.com; style-src 'self'; img-src 'self' blob:; media-src blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>WW</title>
 <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./style.css?v=0227c55617a9">
-<script src="./app.js?v=0227c55617a9" defer></script>
+<link rel="stylesheet" href="./style.css?v=ecf4b4ad571c">
+<script src="./app.js?v=ecf4b4ad571c" defer></script>
 </head>
 <body data-mode="gate">
 <div id="cosmos-surface" class="cosmos-surface" data-mode="gate"></div>
@@ -36,6 +36,7 @@
 </main>
 <main id="space" class="space" hidden aria-label="记忆空间">
   <header class="space-header"><span class="space-brand">WW</span><div class="space-switch" aria-label="空间浏览方式"><button id="space-map" type="button" aria-pressed="true">星空</button><button id="space-gallery" type="button" aria-pressed="false">展廊</button></div><div class="space-header-actions"><button id="space-lock" type="button">锁定</button><button id="space-manager" class="space-primary" type="button">照片管理</button></div></header>
+  <div class="space-grouping" role="group" aria-label="星云分类"><button id="group-place" type="button" aria-pressed="true">按地点</button><button id="group-time" type="button" aria-pressed="false">按时间</button></div>
   <div class="space-caption"><nav id="space-breadcrumb" class="space-breadcrumb" aria-label="星云层级"></nav><span id="space-level" class="space-level"></span><h1 id="space-title">记忆，在星云中相遇。</h1><p id="space-subtitle">旋转探索，放大进入一片星云。</p></div>
   <div class="space-toolbar" aria-label="星图控制"><button id="space-zoom-out" type="button" aria-label="缩小星图">−</button><button id="space-zoom-in" type="button" aria-label="放大星图">＋</button><button id="space-reset" type="button">全部星云</button><button id="space-motion" type="button" aria-pressed="false">暂停星光</button></div>
   <p class="atlas-hint" id="atlas-hint">拖动旋转，轻甩继续转动。滚动 / 双指缩放，点击进入。</p>

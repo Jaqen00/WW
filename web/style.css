@@ -170,3 +170,21 @@ body[data-mode=space] #viewer{background:#0b1018;color:#edf0f4;border:1px solid 
 .gate .online-space-link{display:grid;place-items:center;text-decoration:none;padding:12px 18px;font-size:14px;pointer-events:auto}
 .nebula-photo:hover,.nebula-photo:focus-visible{z-index:1500!important}
 @media(max-width:700px){.space-toolbar button:first-child,.space-toolbar button:nth-child(2){width:44px;min-height:44px}.space-toolbar #space-reset{min-height:44px}.atlas-hint{bottom:179px}.space-toolbar{bottom:125px}}
+/* Two explicit ways into the same decrypted collection. */
+.space-grouping{position:absolute;top:105px;left:40px;display:flex;gap:2px;padding:3px;border:1px solid #ffffff29;border-radius:24px;background:#0b1322bb;pointer-events:auto;backdrop-filter:blur(8px)}
+.space-grouping button{border:0;border-radius:19px;background:transparent;min-height:30px;padding:5px 17px;font-size:11px;backdrop-filter:none}
+.space-grouping button[aria-pressed=true]{background:#dce5f2;color:#152035}
+.space-caption{top:155px}.space-caption h1{font-size:clamp(24px,2.6vw,33px)}.space-breadcrumb{margin-bottom:12px}
+.atlas-viewport{top:150px}
+.space[data-view=gallery] .space-grouping{display:none}
+.nebula-label span{color:#d2deed}.nebula-label{max-width:260px}
+@media(max-width:700px){.space-grouping{top:83px;left:22px}.space-grouping button{min-height:36px;padding-inline:16px}.space-caption{top:133px}.space-breadcrumb{margin-bottom:6px}.space-caption h1{font-size:21px}.space-caption p{font-size:10px;max-width:100%}.atlas-viewport{top:215px}.nebula-label{max-width:220px}.space[data-view=gallery] .space-caption{top:92px}}
+@media(max-height:650px) and (min-width:701px){.space-grouping{top:84px}.space-caption{top:133px}.space-caption h1{font-size:24px}.space-breadcrumb{margin-bottom:7px}.atlas-viewport{top:175px}}
+/* Generated 4K atmosphere, served locally alongside the encrypted viewer. */
+.nebula-art{position:absolute;inset:-1.3%;display:block;pointer-events:none;z-index:0;transform:scale(1.025);will-change:transform;opacity:0;transition:opacity 700ms ease}
+.nebula-art img{display:block;width:100%;height:100%;object-fit:cover;filter:none}
+.has-nebula-art .nebula-art{opacity:.84}
+.has-nebula-art .galaxy-sky{opacity:.08}
+.has-nebula-art[data-mode=space] .nebula-art{opacity:.53}
+.has-nebula-art[data-mode=space] .galaxy-sky{opacity:.06}
+@media(prefers-reduced-motion:reduce){.nebula-art{transition:none;will-change:auto}}
