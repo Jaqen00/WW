@@ -192,8 +192,7 @@ body[data-mode=space] #viewer{background:#0b1018;color:#edf0f4;border:1px solid 
 /* Appearance controls sit above the sky; media keeps its original colour. */
 .palette-filter-defs{position:absolute;pointer-events:none;overflow:hidden}
 body[data-palette]:not([data-palette-strength="0"]) .nebula-art img,
-body[data-palette]:not([data-palette-strength="0"]) .galaxy-sky,
-body[data-palette]:not([data-palette-strength="0"]) .nebula-particles{filter:url("#nebula-palette")}
+body[data-palette]:not([data-palette-strength="0"]) .cosmos-surface[data-renderer=canvas] .galaxy-sky{filter:url("#nebula-palette")}
 .palette-tools{position:fixed;right:40px;top:28px;z-index:8;color:#edf0f7;pointer-events:none}
 body[data-mode=space] .palette-tools{top:105px}
 body[data-mode=library] .palette-tools,body:has(#viewer[open]) .palette-tools{display:none}
@@ -242,3 +241,34 @@ body[data-palette] .gate .primary,body[data-palette] .space button.space-primary
 @keyframes nebula-drift{from{transform:translate(-.8%,-.5%) rotate(-.3deg) scale(1.04)}to{transform:translate(1%,.7%) rotate(.3deg) scale(1.07)}}
 .cosmos-surface[data-motion=off] .nebula-art img{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.cosmos-surface .nebula-art img{animation:none!important;transform:none}}
+
+/* The selected colour carries through the entrance, controls and library. */
+body[data-palette]:not([data-palette-strength="0"]) .cosmos-surface{background:var(--sky-floor)}
+body[data-palette]:not([data-palette-strength="0"]) .cosmos-surface::after{background:linear-gradient(var(--sky-vignette),transparent 30%,transparent 68%,var(--sky-edge))}
+body[data-palette]:not([data-palette-strength="0"]) .cosmos-surface[data-mode=gate]::after{background:linear-gradient(90deg,var(--sky-vignette),transparent 78%),linear-gradient(var(--sky-vignette),transparent 45%,var(--sky-edge))}
+body[data-palette]:not([data-palette-strength="0"]) .has-live-nebula .galaxy-sky{opacity:.94}
+body[data-palette]:not([data-palette-strength="0"]) .has-live-nebula[data-mode=space] .galaxy-sky{opacity:.67}
+body[data-palette]:not([data-palette-strength="0"]) .gate input{background:var(--space-panel);border-color:var(--space-line);caret-color:var(--nebula-accent)}
+body[data-palette]:not([data-palette-strength="0"]) .gate-intro,body[data-palette]:not([data-palette-strength="0"]) .gate .gate-note,body[data-palette]:not([data-palette-strength="0"]) .gate form label{color:var(--space-soft)}
+body[data-palette]:not([data-palette-strength="0"]) .gate .unlock-progress{background:var(--space-panel);border-color:var(--space-line)}
+body[data-palette]:not([data-palette-strength="0"]) .space button,body[data-palette]:not([data-palette-strength="0"]) .space-switch,body[data-palette]:not([data-palette-strength="0"]) .space-grouping{background:var(--space-panel);border-color:var(--space-line);color:var(--space-soft)}
+body[data-palette]:not([data-palette-strength="0"]) .space button:hover{background:var(--space-line);color:#fff}
+body[data-palette]:not([data-palette-strength="0"]) .space .space-switch button[aria-pressed=true],body[data-palette]:not([data-palette-strength="0"]) .space .space-grouping button[aria-pressed=true],body[data-palette]:not([data-palette-strength="0"]) .space button.space-primary{background:var(--nebula-accent);color:var(--ink);border-color:transparent}
+body[data-palette]:not([data-palette-strength="0"]) .space .space-switch button:not([aria-pressed=true]),body[data-palette]:not([data-palette-strength="0"]) .space .space-grouping button:not([aria-pressed=true]){background:transparent}
+body[data-palette]:not([data-palette-strength="0"]) .space-caption p,body[data-palette]:not([data-palette-strength="0"]) .space-breadcrumb button,body[data-palette]:not([data-palette-strength="0"]) .atlas-hint{color:var(--space-soft)}
+body[data-palette]:not([data-palette-strength="0"]) .space .nebula-photo{background:transparent;border:0}
+.palette-tools{color:var(--palette-ink,#edf0f7)}
+.palette-tools .palette-toggle{color:var(--space-soft,#edf0f7);background:var(--space-panel,#11121ddd);border-color:var(--space-line,#ffffff29)}
+.palette-panel{background:var(--palette-paper,#11111dea);border-color:var(--line,#ffffff30)}
+.palette-heading p,.palette-setting,.palette-setting output,.palette-note,.palette-presets button,.palette-heading #palette-close{color:var(--palette-muted,#aaa7b6)}
+.palette-presets button[aria-pressed=true]{color:var(--palette-ink,#fff);border-color:var(--accent,#eacddd);background:var(--accent-soft,#ffffff0b)}
+#palette-name,#palette-motion-state{color:var(--accent,#eacddd)}
+.palette-tools .palette-motion{color:var(--palette-ink,#edf0f7);border-color:var(--line,#ffffff16)}
+body[data-palette]:not([data-palette-strength="0"]) .palette-tools button:hover{background:var(--accent-soft);color:var(--ink)}
+body[data-palette]:not([data-palette-strength="0"]) .palette-tools :focus-visible{outline-color:var(--accent)}
+.palette-setting input::-webkit-slider-runnable-track{background:var(--line,#ffffff24)}
+.palette-setting input::-moz-range-track{background:var(--line,#ffffff24)}
+body[data-palette]:not([data-palette-strength="0"]) .top,body[data-palette]:not([data-palette-strength="0"]) .tools{background:var(--canvas)}
+body[data-palette]:not([data-palette-strength="0"]) .view-tabs,body[data-palette]:not([data-palette-strength="0"]) .location-chip{background:var(--accent-soft)}
+body[data-palette]:not([data-palette-strength="0"]) .location-chip[aria-pressed=true]{background:var(--accent);color:#fff}
+@media(max-width:700px){body[data-palette]:not([data-palette-strength="0"]) .cosmos-surface[data-mode=gate]::after{background:linear-gradient(var(--sky-vignette),transparent 26%,var(--sky-edge) 86%)}}
