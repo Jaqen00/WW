@@ -291,7 +291,7 @@ body[data-palette][data-palette-light=bright] .gate .unlock-progress #unlock-det
 body[data-palette][data-palette-light=bright] .gate .unlock-steps li[data-state=active]{color:var(--accent)}
 body[data-palette][data-palette-light=bright] .space-caption p,body[data-palette][data-palette-light=bright] .space-breadcrumb button,body[data-palette][data-palette-light=bright] .atlas-hint{color:var(--ink)}
 body[data-palette][data-palette-light=bright] .space-breadcrumb button[aria-current],body[data-palette][data-palette-light=bright] .space-breadcrumb button:hover{color:var(--accent)}
-body[data-palette][data-palette-light=bright] .space .nebula-label{background:transparent;color:var(--ink);text-shadow:0 1px 6px #fff3}
+body[data-palette][data-palette-light=bright] .nebula-label{background:transparent;color:var(--ink);text-shadow:0 1px 6px #fff3}
 body[data-palette][data-palette-light=bright] .nebula-label span,body[data-palette][data-palette-light=bright] .nebula-label:hover strong,body[data-palette][data-palette-light=bright] .nebula-photo-caption{color:var(--ink);text-shadow:0 1px 8px #fff8}
 body[data-palette][data-palette-light=bright] .space-browser{background:transparent}
 body[data-palette][data-palette-light=bright] .space-page p,body[data-palette][data-palette-light=bright] .space-photo .chapter-label,body[data-palette][data-palette-light=bright] .space-toolbar #space-motion{color:var(--ink)}
@@ -311,8 +311,8 @@ body[data-palette][data-palette-light=bright] .palette-gold{background:radial-gr
 body[data-palette-light=bright] .space{--space-control:#ffffff12;--space-control-hover:#ffffff28;--space-control-line:#612c452e}
 body[data-palette] .space .space-breadcrumb button,
 body[data-palette] .space .space-breadcrumb button:hover,
-body[data-palette] .space .nebula-label,
-body[data-palette] .space .nebula-label:hover{background:transparent;border:0;box-shadow:none;backdrop-filter:none}
+body[data-palette] .nebula-label,
+body[data-palette] .nebula-label:hover{background:transparent;border:0;box-shadow:none;backdrop-filter:none}
 body[data-palette] .space .space-breadcrumb button:hover{text-decoration:underline;text-underline-offset:4px}
 body[data-palette] .space :is(.space-switch,.space-grouping) button:not([aria-pressed=true]){color:var(--space-soft,#c9ced7)}
 body[data-palette] .space button.space-photo{background:transparent;color:var(--space-soft,#c9ced7);border-color:transparent}
@@ -324,3 +324,5 @@ body[data-palette-light=bright] .space .gallery-shot:not([data-ready=true]){back
 body[data-palette-light=bright] .space .gallery-shot:not([data-ready=true]):not([data-failed=true])::after{background:transparent;color:var(--ink)}
 body[data-palette-light=bright] .palette-panel{box-shadow:0 12px 34px #612c4526}
 body[data-mode=space] .palette-tools .palette-toggle{background:#ffffff12;border-color:var(--space-line,#ffffff30)}
+body[data-palette-light=bright] .space-header{background:transparent}
+body[data-palette-light=bright] .nebula-label:focus-visible,body[data-palette-light=bright] .nebula-photo:focus-visible{outline-color:var(--accent)}
