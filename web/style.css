@@ -188,3 +188,57 @@ body[data-mode=space] #viewer{background:#0b1018;color:#edf0f4;border:1px solid 
 .has-nebula-art[data-mode=space] .nebula-art{opacity:.53}
 .has-nebula-art[data-mode=space] .galaxy-sky{opacity:.06}
 @media(prefers-reduced-motion:reduce){.nebula-art{transition:none;will-change:auto}}
+
+/* Appearance controls sit above the sky; media keeps its original colour. */
+.palette-filter-defs{position:absolute;pointer-events:none;overflow:hidden}
+body[data-palette]:not([data-palette-strength="0"]) .nebula-art img,
+body[data-palette]:not([data-palette-strength="0"]) .galaxy-sky,
+body[data-palette]:not([data-palette-strength="0"]) .nebula-particles{filter:url("#nebula-palette")}
+.palette-tools{position:fixed;right:40px;top:28px;z-index:8;color:#edf0f7;pointer-events:none}
+body[data-mode=space] .palette-tools{top:105px}
+body[data-mode=library] .palette-tools,body:has(#viewer[open]) .palette-tools{display:none}
+.palette-tools button{color:inherit;background:#11121ddd;border:1px solid #ffffff29;min-height:44px;border-radius:12px;font-size:11px;pointer-events:auto}
+.palette-tools button:hover{background:#25222edb;border-color:#ffffff60}
+.palette-tools :focus-visible{outline:2px solid var(--nebula-accent);outline-offset:4px}
+.palette-toggle{display:flex;align-items:center;gap:9px;padding:8px 14px;backdrop-filter:blur(12px)}
+.palette-dot{width:12px;height:12px;border-radius:50%;background:var(--nebula-swatch);box-shadow:0 0 13px color-mix(in srgb,var(--nebula-swatch) 40%,transparent)}
+.palette-panel{position:absolute;top:56px;right:0;width:330px;max-width:calc(100vw - 36px);max-height:calc(100dvh - 180px);overflow:auto;overscroll-behavior:contain;padding:24px;border:1px solid #ffffff30;border-radius:22px;background:#11111dea;box-shadow:0 18px 60px #0007;backdrop-filter:blur(24px);pointer-events:auto}
+.palette-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px}
+.palette-heading p{margin:0 0 5px;color:#aaa7b6;font-size:10px;letter-spacing:.05em}
+.palette-heading h2{font-size:18px;font-weight:450;margin:0;letter-spacing:-.03em}
+#palette-name{font-size:10px;color:var(--nebula-accent);display:inline-block;margin-left:8px}
+.palette-heading #palette-close{border:0;background:transparent;padding:0;width:44px;min-width:44px;font-size:23px;color:#c3c0ce}
+.palette-presets{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:25px}
+.palette-presets button{display:flex;flex-direction:column;align-items:center;gap:9px;min-height:78px;padding:10px 2px;background:transparent;border-color:transparent;border-radius:12px;font-size:10px;color:#c5c1d0}
+.palette-presets button[aria-pressed=true]{border-color:var(--nebula-accent);background:#ffffff0b;color:#fff}
+.palette-sample{width:32px;height:32px;border-radius:50%;box-shadow:inset 0 0 0 1px #ffffff26}
+.palette-rose{background:radial-gradient(circle at 30% 30%,#f5d8e8,#9e546f 48%,#322136 80%)}
+.palette-violet{background:radial-gradient(circle at 30% 30%,#ded5f5,#7b5fa6 48%,#282135 80%)}
+.palette-silver{background:radial-gradient(circle at 30% 30%,#dde6f5,#657da0 48%,#192638 80%)}
+.palette-gold{background:radial-gradient(circle at 30% 30%,#f5e7cb,#9a7c4d 48%,#2d2720 80%)}
+.palette-setting{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:12px;margin-top:16px;font-size:11px;color:#d0ccd9}
+.palette-setting output{font-variant-numeric:tabular-nums;color:#a6a2b1;font-size:10px}
+.palette-setting input{grid-column:1/-1;width:100%;min-height:36px;height:36px;appearance:none;-webkit-appearance:none;padding:0;border:0;background:transparent;cursor:pointer;accent-color:var(--nebula-accent)}
+.palette-setting input::-webkit-slider-runnable-track{height:5px;border-radius:4px;background:#ffffff24}
+.palette-setting input::-moz-range-track{height:5px;border-radius:4px;background:#ffffff24}
+#palette-hue::-webkit-slider-runnable-track{background:linear-gradient(90deg,#cc7777,#c9b46d,#79ae83,#77b8ba,#858ccc,#b385c4,#cc7777)}
+#palette-hue::-moz-range-track{background:linear-gradient(90deg,#cc7777,#c9b46d,#79ae83,#77b8ba,#858ccc,#b385c4,#cc7777)}
+.palette-setting input::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:17px;height:17px;margin-top:-6px;border:2px solid #f4eef7;border-radius:50%;background:var(--nebula-swatch);box-shadow:0 1px 6px #0007}
+.palette-setting input::-moz-range-thumb{width:13px;height:13px;border:2px solid #f4eef7;border-radius:50%;background:var(--nebula-swatch)}
+.palette-note{margin:16px 0 0;color:#9792a4;font-size:10px;line-height:1.7}
+.palette-tools .palette-motion{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:10px;padding:10px 0;background:transparent;border:0;border-bottom:1px solid #ffffff16;border-radius:0;font-size:11px}
+#palette-motion-state{font-size:10px;color:var(--nebula-accent)}
+body[data-palette] .gate .primary,body[data-palette] .space button.space-primary,body[data-palette] .space-grouping button[aria-pressed=true]{background:var(--nebula-accent,#dde5f1);border-color:transparent;color:#1b1621}
+@media(min-width:1001px){.space-toolbar{top:160px}}
+@media(max-width:700px){.palette-tools{top:24px;right:18px}body[data-mode=space] .palette-tools{top:83px}.palette-panel{padding:20px}.palette-tools .palette-toggle{min-height:42px;padding:8px 12px}}
+@media(max-width:360px){body[data-mode=space] .palette-toggle-text{display:none}body[data-mode=space] .palette-tools .palette-toggle{width:44px;justify-content:center}}
+@media(prefers-reduced-transparency:reduce){.palette-panel,.palette-toggle{background:#16141e;backdrop-filter:none}}
+/* WebGL moves the dust within the 4K texture. Canvas fallback drifts gently. */
+.has-live-nebula .nebula-art{opacity:0;visibility:hidden}
+.has-live-nebula .galaxy-sky{opacity:.84}
+.has-live-nebula[data-mode=space] .nebula-art{opacity:0}
+.has-live-nebula[data-mode=space] .galaxy-sky{opacity:.53}
+.cosmos-surface:not(.has-live-nebula) .nebula-art img{animation:nebula-drift 36s ease-in-out infinite alternate;transform:scale(1.04)}
+@keyframes nebula-drift{from{transform:translate(-.8%,-.5%) rotate(-.3deg) scale(1.04)}to{transform:translate(1%,.7%) rotate(.3deg) scale(1.07)}}
+.cosmos-surface[data-motion=off] .nebula-art img{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.cosmos-surface .nebula-art img{animation:none!important;transform:none}}

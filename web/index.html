@@ -8,10 +8,26 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://raw.githubusercontent.com; style-src 'self'; img-src 'self' blob:; media-src blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>WW</title>
 <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./style.css?v=ecf4b4ad571c">
-<script src="./app.js?v=ecf4b4ad571c" defer></script>
+<link rel="stylesheet" href="./style.css?v=5dffaac4e355">
+<script src="./app.js?v=5dffaac4e355" defer></script>
 </head>
 <body data-mode="gate">
+<aside id="palette-tools" class="palette-tools" aria-label="空间外观">
+  <button id="palette-toggle" class="palette-toggle" type="button" aria-label="星云配色" aria-expanded="false" aria-controls="palette-panel"><span class="palette-dot" aria-hidden="true"></span><span class="palette-toggle-text">配色</span></button>
+  <section id="palette-panel" class="palette-panel" hidden role="dialog" aria-modal="false" aria-labelledby="palette-title">
+    <div class="palette-heading"><div><p>让星空，属于你。</p><h2 id="palette-title">星云配色 <span id="palette-name">玫瑰粉</span></h2></div><button id="palette-close" type="button" aria-label="关闭配色面板">×</button></div>
+    <div class="palette-presets" role="group" aria-label="预设配色">
+      <button type="button" data-preset="rose" aria-pressed="true"><span class="palette-sample palette-rose" aria-hidden="true"></span>玫瑰粉</button>
+      <button type="button" data-preset="violet" aria-pressed="false"><span class="palette-sample palette-violet" aria-hidden="true"></span>紫罗兰</button>
+      <button type="button" data-preset="silver" aria-pressed="false"><span class="palette-sample palette-silver" aria-hidden="true"></span>蓝银</button>
+      <button type="button" data-preset="gold" aria-pressed="false"><span class="palette-sample palette-gold" aria-hidden="true"></span>香槟金</button>
+    </div>
+    <div class="palette-setting"><label for="palette-hue">自由色调</label><output id="palette-hue-value" for="palette-hue">330°</output><input id="palette-hue" type="range" min="0" max="360" value="330" step="1"></div>
+    <div class="palette-setting"><label for="palette-strength">色彩浓度</label><output id="palette-strength-value" for="palette-strength">88%</output><input id="palette-strength" type="range" min="0" max="100" value="88" step="1"></div>
+    <button id="palette-motion" class="palette-motion" type="button" aria-pressed="true"><span>背景流动</span><span id="palette-motion-state">开</span></button>
+    <p id="palette-note" class="palette-note">会记住这台设备的选择。照片保持原色。</p>
+  </section>
+</aside>
 <div id="cosmos-surface" class="cosmos-surface" data-mode="gate"></div>
 <div class="gate-wordmark" aria-hidden="true">WW</div>
 <main id="gate" class="gate">
