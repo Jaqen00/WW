@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self' https://raw.githubusercontent.com; style-src 'self'; img-src 'self' blob:; media-src blob:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>WW</title>
 <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./style.css?v=b0532172e5c0">
-<script src="./app.js?v=b0532172e5c0" defer></script>
+<link rel="stylesheet" href="./style.css?v=b4b39542765b">
+<script src="./app.js?v=b4b39542765b" defer></script>
 </head>
 <body data-mode="gate">
 <aside id="palette-tools" class="palette-tools" aria-label="空间外观">
@@ -52,10 +52,10 @@
   </div>
 </main>
 <main id="space" class="space" hidden aria-label="记忆空间">
-  <header class="space-header"><span class="space-brand">WW</span><div class="space-switch" aria-label="空间浏览方式"><button id="space-map" type="button" aria-pressed="true">星空</button><button id="space-gallery" type="button" aria-pressed="false">展廊</button></div><div class="space-header-actions"><button id="space-lock" type="button">锁定</button><button id="space-manager" class="space-primary" type="button">照片管理</button></div></header>
+  <header class="space-header"><span class="space-brand">WW</span><div class="space-switch" aria-label="空间浏览方式"><button id="space-map" type="button" aria-pressed="true">星空</button><button id="space-gallery" type="button" aria-pressed="false">展廊</button><button id="space-letters" type="button" aria-pressed="false">书信</button></div><div class="space-header-actions"><button id="space-lock" type="button">锁定</button><button id="space-manager" class="space-primary" type="button">照片管理</button></div></header>
   <div class="space-grouping" role="group" aria-label="星云分类"><button id="group-place" type="button" aria-pressed="true">按地点</button><button id="group-time" type="button" aria-pressed="false">按时间</button></div>
   <div class="space-caption"><nav id="space-breadcrumb" class="space-breadcrumb" aria-label="星云层级"></nav><span id="space-level" class="space-level"></span><h1 id="space-title">记忆，在星云中相遇。</h1><p id="space-subtitle">旋转探索，放大进入一片星云。</p></div>
-  <div class="space-toolbar" aria-label="星图控制"><button id="space-zoom-out" type="button" aria-label="缩小星图">−</button><button id="space-zoom-in" type="button" aria-label="放大星图">＋</button><button id="space-reset" type="button">全部星云</button><button id="space-motion" type="button" aria-pressed="false">暂停星光</button></div>
+  <div class="space-toolbar" aria-label="星图控制"><button id="space-zoom-out" type="button" aria-label="缩小星图">−</button><button id="space-zoom-in" type="button" aria-label="放大星图">＋</button><button id="space-reset" type="button">全部星云</button><button id="space-letter-list" type="button" hidden>书信列表</button><button id="space-share" type="button" hidden>分享星云</button><button id="space-motion" type="button" aria-pressed="false">暂停星光</button></div>
   <p class="atlas-hint" id="atlas-hint">拖动旋转，轻甩继续转动。滚动 / 双指缩放，点击进入。</p>
   <section id="chapter-gallery" class="chapter-gallery" hidden aria-label="章节展廊"><div id="gallery-track" class="gallery-track" tabindex="0" aria-label="滚动或上下滑动浏览照片，方向键翻页，点击当前照片放大"></div><div class="gallery-navigation"><button id="gallery-previous" type="button" aria-label="上一张展廊照片">←</button><p id="gallery-position" role="status" aria-live="polite"></p><button id="gallery-next" type="button" aria-label="下一张展廊照片">→</button></div><div id="gallery-progress" class="gallery-progress" aria-hidden="true"></div></section>
   <section class="space-browser" aria-label="记忆章节"><div class="space-page"><button id="space-previous" type="button" aria-label="上一章节">←</button><p id="space-status" role="status" aria-live="polite">空间正在展开…</p><button id="space-next" type="button" aria-label="下一章节">→</button></div><div id="space-photos" class="space-photos"></div></section>
@@ -77,11 +77,15 @@
     <div id="grid" class="groups"></div>
   <footer class="library-footer">位置资料：<a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">GeoNames</a> · CC BY 4.0</footer></section>
 </main>
+<section id="letter-reader" hidden aria-label="书信阅读">
+  <div class="letter-reader-layout"><header class="letter-reader-toolbar"><button id="letter-close" type="button" aria-label="返回星云空间">← 空间</button><div class="letter-picker"><button id="letter-choice" type="button" disabled aria-label="选择书信" aria-describedby="letter-current-title" aria-haspopup="dialog" aria-expanded="false" aria-controls="letter-options"><span id="letter-current-title"></span><span aria-hidden="true">⌄</span></button><div id="letter-options" class="letter-picker-menu" role="dialog" aria-label="书信列表" hidden><label class="sr-only" for="letter-search">搜索书信标题或日期</label><input id="letter-search" type="search" placeholder="搜索标题或日期" autocomplete="off"><div id="letter-option-list" class="letter-option-list" role="menu" aria-label="书信"></div><p id="letter-list-empty" hidden>没有找到书信。</p><button id="letter-more" type="button" hidden>显示更多</button></div></div><button id="letter-share" type="button">分享</button></header><div class="letter-reader-stage"><div class="letter-loading"><p id="letter-status" role="status" aria-live="polite"></p><button id="letter-retry" type="button" hidden>重试</button></div><div id="letter-page-host"></div></div></div>
+</section>
+<dialog id="share-dialog" aria-labelledby="share-title"><div class="share-box"><div class="share-heading"><h2 id="share-title">分享</h2><button id="share-close" type="button" aria-label="关闭分享">×</button></div><p id="share-target"></p><p class="share-explanation">链接会定位到选中的内容。对方仍需输入空间密码，密码不会包含在链接里。知道空间密码的人可以浏览整个空间。</p><label class="sr-only" for="share-link">分享链接</label><input id="share-link" type="text" readonly><button id="share-copy" class="primary" type="button">复制链接</button><p id="share-status" role="status" aria-live="polite"></p></div></dialog>
 <dialog id="viewer" aria-labelledby="view-name">
   <div class="viewer-inner">
     <div class="viewer-top"><h2 id="view-name"></h2><button id="close" type="button" aria-label="关闭">关闭</button></div>
     <div class="viewer-navigation"><button id="previous" type="button" aria-label="上一项">上一张</button><span id="view-position"></span><button id="next" type="button" aria-label="下一项">下一张</button></div><div class="viewer-stage"><video id="video" controls playsinline preload="none" hidden></video></div>
-    <div class="viewer-bottom"><p id="view-info"></p><pre id="raw-information" hidden></pre><p id="view-path"></p><div class="viewer-actions"><button id="inspect" type="button">原始信息</button><button id="zoom" type="button">放大</button><button id="play" type="button" hidden>播放视频</button><button id="download" class="primary" type="button">下载原件</button></div><p id="view-status" class="status" role="status" aria-live="polite"></p></div>
+    <div class="viewer-bottom"><p id="view-info"></p><pre id="raw-information" hidden></pre><p id="view-path"></p><div class="viewer-actions"><button id="inspect" type="button">原始信息</button><button id="zoom" type="button">放大</button><button id="play" type="button" hidden>播放视频</button><button id="share-media" type="button">分享</button><button id="download" class="primary" type="button">下载原件</button></div><p id="view-status" class="status" role="status" aria-live="polite"></p></div>
   </div>
 </dialog>
 </body></html>
